@@ -1,0 +1,269 @@
+# Importing the qiskit module
+from qiskit import *
+
+
+q0 = 3    # number of required qubits
+a0 =  0  # number of ancilla qubit
+beta = circuit.Parameter('beta') #Parameter for reflection 
+# Defining Quantum Circuit with the given circuits
+def Circuit_0(q,a,beta):
+    if a != 0:
+        # initiating required and ancilla qubits
+        Q = QuantumRegister(q) 
+        A = QuantumRegister(a)  
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,A)
+    else:
+        # initiating required qubits
+        Q = QuantumRegister(q) 
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q)
+    
+    ##### Create you circuit below #########
+    
+
+    
+    ########################################
+    
+    # Uncomment to draw quantum circuit
+    display(Circ.draw('mpl'))
+    
+    # Transpiling the circuit into u, cnot
+    Circ = transpile(Circ, basis_gates=['u3','cx'])
+    
+    # Uncomment to draw transpiled circuit
+    display(Circ.draw('mpl'))
+    
+    return Circ
+
+qc_0 = Circuit_0(q0,a0,beta)
+
+
+
+########## M==1######
+
+# Importing the qiskit module
+from qiskit import *
+
+
+q1 = 3    # number of required qubits
+a1 = 0   # number of ancilla qubit
+beta = circuit.Parameter('beta') #Parameter for reflection 
+# Defining Quantum Circuit with the given circuits
+def Circuit_1(q,a,beta):
+    if a != 0:
+        # initiating required and ancilla qubits
+        Q = QuantumRegister(q) 
+        A = QuantumRegister(a)  
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,A)
+    else:
+        # initiating required qubits
+        Q = QuantumRegister(q) 
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q)
+    
+    ##### Create you circuit below #########
+    
+    Circ.p(beta,Q[0])
+    Circ.p(beta,Q[1])
+    Circ.p(beta,Q[2])
+    Circ.cx(0,1)
+    Circ.cx(1,2)
+    Circ.p(-beta,Q[1])
+    Circ.p(-beta,Q[2])
+    Circ.cx(1,2)
+    Circ.cx(0,1)
+
+    
+    ########################################
+    
+    # Uncomment to draw quantum circuit
+    display(Circ.draw('mpl'))
+    
+    # Transpiling the circuit into u, cnot
+    Circ = transpile(Circ, basis_gates=['u3','cx'])
+    
+    # Uncomment to draw transpiled circuit
+    display(Circ.draw('mpl'))
+    
+    return Circ
+
+qc_1 = Circuit_1(q1,a1,beta)
+
+
+
+
+#### M=2 ####
+# Importing the qiskit module
+from qiskit import *
+
+
+q2 = 3    # number of required qubits
+a2 = 0   # number of ancilla qubit
+beta = circuit.Parameter('beta') #Parameter for reflection 
+# Defining Quantum Circuit with the given circuits
+def Circuit_2(q,a,beta):
+    if a != 0:
+        # initiating required and ancilla qubits
+        Q = QuantumRegister(q) 
+        A = QuantumRegister(a)  
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,A)
+    else:
+        # initiating required qubits
+        Q = QuantumRegister(q) 
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q)
+    
+    ##### Create you circuit below #########
+    Circ.p(beta,Q[0])
+    Circ.p(beta,Q[1])
+    Circ.p(beta,Q[2])
+    Circ.cx(0,1)
+    Circ.cx(1,2)
+    Circ.p(-beta,Q[1])
+    Circ.p(-beta,Q[2])
+    Circ.cx(1,2)
+    Circ.cx(0,1)
+    Circ.p(-beta,Q[0])
+    Circ.p(-beta,Q[1])
+    Circ.p(-beta,Q[2])
+    Circ.cx(0,1)
+    Circ.cx(1,2)
+    Circ.p(beta,Q[1])
+    Circ.p(beta,Q[2])
+    Circ.cx(1,2)
+    Circ.cx(0,1)
+
+    
+    ########################################
+    
+    # Uncomment to draw quantum circuit
+    display(Circ.draw('mpl'))
+    
+    # Transpiling the circuit into u, cnot
+    Circ = transpile(Circ, basis_gates=['u3','cx'])
+    
+    # Uncomment to draw transpiled circuit
+    display(Circ.draw('mpl'))
+    
+    return Circ
+
+qc_2 = Circuit_2(q2,a2,beta)
+
+
+
+####### M3##############
+# Importing the qiskit module
+from qiskit import *
+
+
+q3 = 3   # number of required qubits
+a3 =  1  # number of ancilla qubit
+beta = circuit.Parameter('beta') #Parameter for reflection 
+# Defining Quantum Circuit with the given circuits
+def Circuit_3(q,a,beta):
+    if a != 0:
+        # initiating required and ancilla qubits
+        Q = QuantumRegister(q) 
+        A = QuantumRegister(a)  
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,A)
+    else:
+        # initiating required qubits
+        Q = QuantumRegister(q) 
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,)
+    
+    ##### Create you circuit below #########
+    Circ.cx(Q[0],A[0])
+    Circ.cx(Q[1],A[0])
+    Circ.cx(Q[2],A[0])
+    Circ.p(beta,A[0])
+    Circ.p(beta,Q[0])
+    Circ.p(beta,Q[1])
+    Circ.p(beta,Q[2])
+    Circ.cx(0,1)
+    Circ.cx(1,2)
+    Circ.p(-beta,Q[1])
+    Circ.p(-beta,Q[2])
+    Circ.cx(1,2)
+    Circ.cx(0,1)
+
+    ########################################
+    
+    # Uncomment to draw quantum circuit
+    display(Circ.draw('mpl'))
+    
+    # Transpiling the circuit into u, cnot
+    Circ = transpile(Circ, basis_gates=['u3','cx'])
+    
+    # Uncomment to draw transpiled circuit
+    display(Circ.draw('mpl'))
+    
+    return Circ
+
+qc_3 = Circuit_3(q3,a3,beta)
+
+
+
+
+
+################# M4 ########################
+
+# Importing the qiskit module
+from qiskit import *
+
+
+q4 = 3   # number of required qubits
+a4 = 1   # number of ancilla qubit
+beta = circuit.Parameter('beta') #Parameter for reflection 
+# Defining Quantum Circuit with the given circuits
+def Circuit_4(q,a,beta):
+    if a != 0:
+        # initiating required and ancilla qubits
+        Q = QuantumRegister(q) 
+        A = QuantumRegister(a)  
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q,A)
+    else:
+        # initiating required qubits
+        Q = QuantumRegister(q) 
+        
+        # creating circuit with above qubits
+        Circ = QuantumCircuit(Q)
+    
+    ##### Create you circuit below #########
+    Circ.cx(Q[0],A[0])
+    Circ.cx(Q[1],A[0])
+    Circ.cx(Q[2],A[0])
+    Circ.p(beta,A[0])
+    Circ.cx(Q[2],A[0])
+    Circ.cx(Q[1],A[0])
+    Circ.cx(Q[0],A[0])
+
+    
+    ########################################
+    
+    # Uncomment to draw quantum circuit
+    display(Circ.draw('mpl'))
+    
+    # Transpiling the circuit into u, cnot
+    Circ = transpile(Circ, basis_gates=['u3','cx'])
+    
+    # Uncomment to draw transpiled circuit
+    display(Circ.draw('mpl'))
+    
+    return Circ
+
+qc_4 = Circuit_4(q4,a4,beta)
